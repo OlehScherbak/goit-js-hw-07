@@ -8,8 +8,9 @@ const galleryMarkup = createGalleryItemsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
 function createGalleryItemsMarkup(galleryItems) {
-    return galleryItems.map(({preview, original,description}) => {
-        return `
+  return galleryItems
+    .map(({ preview, original, description }) => {
+      return `
 <div class="gallery__item">
     <a class="gallery__link" href="${original}" target="_parent">
         <img
@@ -19,8 +20,13 @@ function createGalleryItemsMarkup(galleryItems) {
             alt="${description}"
         />
     </a>
-</div>`;  
-    }).join('');
-    
+</div>`;
+    })
+    .join('');
 }
 
+const bigPicture = document.querySelector('.modal');
+galleryContainer.addEventListener('click', toggleModal);
+function toggleModal() {
+  bigPicture.classList.toggle('is-hidden');
+}
