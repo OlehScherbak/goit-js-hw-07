@@ -12,7 +12,7 @@ function createGalleryItemsMarkup(galleryItems) {
     .map(({ preview, original, description }) => {
       return `
 <div class="gallery__item">
-    <a class="gallery__link" href="${original}" target="_parent">
+    <a class="gallery__link" href="${original}" download=none>
         <img
             class="gallery__image"
             src="${preview}"
@@ -25,8 +25,11 @@ function createGalleryItemsMarkup(galleryItems) {
     .join('');
 }
 
-const bigPicture = document.querySelector('.modal');
+const pictureModal = document.querySelector('.modal');
+pictureModal.addEventListener('click', toggleModal);
 galleryContainer.addEventListener('click', toggleModal);
+
 function toggleModal() {
-  bigPicture.classList.toggle('is-hidden');
+  pictureModal.classList.toggle('is-hidden');
+  document.body.classList.toggle('modal-open');
 }

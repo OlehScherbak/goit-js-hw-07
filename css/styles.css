@@ -49,8 +49,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
-  min-width: 320px;
-  max-width: 450px;
+  height: 95%;
   padding: 40px;
   background-color: green;
 }
@@ -60,4 +59,8 @@
   visibility: hidden;
   pointer-events: none;
   transform: scale(0.9);
+}
+
+.modal-open {
+  overflow-y: hidden;
 }
