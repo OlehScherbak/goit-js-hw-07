@@ -43,24 +43,3 @@
   cursor: zoom-in;
 }
 
-/* .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-  height: 95%;
-  padding: 40px;
-  background-color: green;
-}
-
-.modal.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: scale(0.9);
-}
-
-.modal-open {
-  overflow-y: hidden;
-} */

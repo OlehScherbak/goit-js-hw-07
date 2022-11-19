@@ -25,13 +25,6 @@ function createGalleryItemsMarkup(galleryItems) {
     .join('');
 }
 
-// const pictureModal = document.querySelector('.modal');
-// pictureModal.addEventListener('click', toggleModal);
-
-// function toggleModal() {
-    //   pictureModal.classList.toggle('is-hidden');
-    //   document.body.classList.toggle('modal-open');
-    // }
     
 galleryContainer.addEventListener('click',  showModal);
 let instance;
