@@ -12,7 +12,7 @@ function createGalleryItemsMarkup(galleryItems) {
     .map(({ preview, original, description }) => {
       return `
 <div class="gallery__item">
-    <a class="gallery__link" href="${original}" download=none>
+    <a class="gallery__link" href="${original}" target="_self">
         <img
             class="gallery__image"
             src="${preview}"
@@ -25,11 +25,28 @@ function createGalleryItemsMarkup(galleryItems) {
     .join('');
 }
 
-const pictureModal = document.querySelector('.modal');
-pictureModal.addEventListener('click', toggleModal);
-galleryContainer.addEventListener('click', toggleModal);
+// const pictureModal = document.querySelector('.modal');
+// pictureModal.addEventListener('click', toggleModal);
 
-function toggleModal() {
-  pictureModal.classList.toggle('is-hidden');
-  document.body.classList.toggle('modal-open');
+// function toggleModal() {
+    //   pictureModal.classList.toggle('is-hidden');
+    //   document.body.classList.toggle('modal-open');
+    // }
+    
+galleryContainer.addEventListener('click',  showModal);
+
+function showModal(evt) {
+    const pickedPicture = evt.target;
+    if (pickedPicture.nodeName === "IMG") {
+        console.log(pickedPicture.alt);
+        const instance = basicLightbox.create(`
+        <img src="${pickedPicture.dataset.source}" alt="${pickedPicture.alt}" >
+    `)
+        instance.show()
+    }
 }
+
+
+
+     
+    
