@@ -34,19 +34,24 @@ function createGalleryItemsMarkup(galleryItems) {
     // }
     
 galleryContainer.addEventListener('click',  showModal);
-
+let instance;
 function showModal(evt) {
     const pickedPicture = evt.target;
-    if (pickedPicture.nodeName === "IMG") {
-        console.log(pickedPicture.alt);
-        const instance = basicLightbox.create(`
+    if (pickedPicture.nodeName !== "IMG") {
+        return;
+    }
+        instance = basicLightbox.create(`
         <img src="${pickedPicture.dataset.source}" alt="${pickedPicture.alt}" >
     `)
-        instance.show()
-    }
+        instance.show();
+        document.addEventListener('keydown', escPressHandler);
 }
 
 
-
+function escPressHandler(evt) {
+    if (evt.key !== "Escape") {return;}
+    document.removeEventListener('keydown', escPressHandler);
+    instance.close();
+}
      
     
