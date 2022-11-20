@@ -29,6 +29,7 @@ function createGalleryItemsMarkup(galleryItems) {
 galleryContainer.addEventListener('click',  showModal);
 let instance;
 function showModal(evt) {
+    evt.preventDefault();
     const pickedPicture = evt.target;
     if (pickedPicture.nodeName !== "IMG") {
         return;
